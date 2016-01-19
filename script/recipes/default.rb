@@ -1,10 +1,10 @@
 cookbook_file "/tmp/touchfile" do
-  source "touchfile"
+  source "touchfile.sh"
   mode 0755
 end
 
 execute "touchfile" do
   user "root"
   cwd "/tmp"
-  command "./touchfile"
+  command "sh touchfile.sh"
 end
