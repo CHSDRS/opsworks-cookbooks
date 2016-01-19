@@ -1,10 +1,10 @@
-bash "install_something" do
+cookbook_file "/tmp/touchfile" do
+  source "touchfile"
+  mode 0755
+end
+
+execute "touchfile" do
   user "root"
   cwd "/tmp"
-  code <<-EOH
-    touch somefile
-  EOH
-  not_if do
-    File.exists?("/tmp/somefile")
-  end
+  command "./touchfile"
 end
